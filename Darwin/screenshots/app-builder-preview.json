@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Darwin Long",
+      "hasCanvas": false,
+      "bodyTextLen": 996,
+      "bodyTextHash": "ba4b2c8c5d955443e5898a8592b42c4318772d7a8e64fe2a3328a2853e7527d9",
+      "bodyTextPrefix": "LABORATOIRE · LONG ONLY Darwin Long Population d’algorithmes qui",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Darwin Long",
+      "hasCanvas": false,
+      "bodyTextLen": 961,
+      "bodyTextHash": "af93da45c2216350aadb9be810c480d54d3b9ce93a15ff6705af7a0584966a8e",
+      "bodyTextPrefix": "LABORATOIRE · LONG ONLY Darwin Long Population d’algorithmes qui",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
