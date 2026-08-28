@@ -1,0 +1,36 @@
+{
+  "id": "gen001_ind014",
+  "generation": 1,
+  "parentIds": [],
+  "genome": {
+    "entryRule": "sma_cross",
+    "smaFast": 27,
+    "smaSlow": 94,
+    "rsiPeriod": 24,
+    "rsiThreshold": 43,
+    "breakoutPeriod": 83,
+    "emaPeriod": 93,
+    "stopLossPct": 6.39,
+    "useTakeProfit": false,
+    "takeProfitPct": 109.88,
+    "useTrailingStop": false,
+    "trailingStopPct": 27.15,
+    "useExitSignal": true
+  },
+  "results": {
+    "entryDate": "2018-05-08",
+    "finalEquity": 209885.27,
+    "totalReturnPct": 1998.85,
+    "sharpe": 1.096,
+    "maxDrawdownPct": 42.6,
+    "calmar": 46.921,
+    "trades": 18,
+    "winRate": 33.3,
+    "equityCurve": null
+  },
+  "survivedRounds": [
+    1,
+    2,
+    3
+  ]
+}

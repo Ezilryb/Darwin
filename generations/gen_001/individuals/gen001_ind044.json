@@ -1,0 +1,36 @@
+{
+  "id": "gen001_ind044",
+  "generation": 1,
+  "parentIds": [],
+  "genome": {
+    "entryRule": "sma_cross",
+    "smaFast": 34,
+    "smaSlow": 166,
+    "rsiPeriod": 17,
+    "rsiThreshold": 33,
+    "breakoutPeriod": 85,
+    "emaPeriod": 84,
+    "stopLossPct": 15.95,
+    "useTakeProfit": true,
+    "takeProfitPct": 195.54,
+    "useTrailingStop": true,
+    "trailingStopPct": 21.34,
+    "useExitSignal": false
+  },
+  "results": {
+    "entryDate": "2019-04-09",
+    "finalEquity": 118225.28,
+    "totalReturnPct": 1082.25,
+    "sharpe": 1.038,
+    "maxDrawdownPct": 42.94,
+    "calmar": 25.206,
+    "trades": 8,
+    "winRate": 50,
+    "equityCurve": null
+  },
+  "survivedRounds": [
+    1,
+    2,
+    3
+  ]
+}
