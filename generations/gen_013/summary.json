@@ -1,0 +1,43 @@
+{
+  "generation": 13,
+  "seed": 42,
+  "config": {
+    "initialPopulation": 100,
+    "eliteSize": 28,
+    "childrenPerSurvivor": 3,
+    "tour1CutRatio": 0.5,
+    "tour2CutRatio": 0.7,
+    "crossoverProb": 0.3
+  },
+  "tours": [
+    {
+      "tour": 1,
+      "metric": "totalReturnPct",
+      "population": 112,
+      "survivors": 56
+    },
+    {
+      "tour": 2,
+      "metric": "sharpe",
+      "population": 56,
+      "survivors": 39
+    },
+    {
+      "tour": 3,
+      "metric": "calmar",
+      "population": 39,
+      "survivors": 28
+    },
+    {
+      "tour": 4,
+      "type": "reproduction",
+      "elites": 28,
+      "children": 84
+    }
+  ],
+  "eliminated": 84,
+  "bestId": "gen011_ind011",
+  "buyAndHold": {
+    "totalReturnPct": 1712.43
+  }
+}

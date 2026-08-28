@@ -1,0 +1,24 @@
+{
+  "id": "gen037_ind071",
+  "generation": 37,
+  "parentIds": [
+    "gen028_ind024"
+  ],
+  "genome": {
+    "entryRule": "breakout",
+    "smaFast": 35,
+    "smaSlow": 200,
+    "rsiPeriod": 9,
+    "rsiThreshold": 20,
+    "breakoutPeriod": 43,
+    "emaPeriod": 77,
+    "stopLossPct": 9.81,
+    "useTakeProfit": true,
+    "takeProfitPct": 186.31,
+    "useTrailingStop": true,
+    "trailingStopPct": 25.63,
+    "useExitSignal": true
+  },
+  "results": null,
+  "survivedRounds": []
+}

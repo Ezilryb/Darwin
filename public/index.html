@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darwin Long — Laboratoire d'algorithmes évolutifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-titles">
+      <div class="eyebrow">Laboratoire · Long only</div>
+      <h1>Darwin Long</h1>
+      <p class="subtitle">
+        Population d'algorithmes qui n'achètent que le BTC. Les faibles sont éliminés, les forts se
+        reproduisent — jusqu'à ce qu'une génération tienne la route.
+      </p>
+    </div>
+    <div class="header-actions">
+      <button id="btn-run" class="btn btn-primary">
+        <span class="btn-icon">▷</span> <span id="btn-run-label">Lancer gén. 1</span>
+      </button>
+      <button id="btn-survivors" class="btn btn-ghost">
+        <span class="btn-icon">☆</span> Garder le meilleur
+      </button>
+      <button id="btn-reset" class="btn btn-ghost">
+        <span class="btn-icon">↺</span> Reset
+      </button>
+      <label class="toggle" title="Enchaîne les 4 tours sans animation ni pause">
+        <input type="checkbox" id="toggle-fast" />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">⏩ Rapide</span>
+      </label>
+    </div>
+  </header>
+
+  <div id="data-warning" class="data-warning hidden">
+    Aucune donnée BTC trouvée. Ouvre un terminal dans le dossier du projet et lance
+    <code>node scripts/fetch_btc.js</code> (ou <code>node scripts/generate_sample_data.js</code> pour tester
+    avec des données factices).
+  </div>
+
+  <!-- Stat cards -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Génération</div>
+      <div class="stat-value" id="stat-generation">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Tour</div>
+      <div class="stat-value" id="stat-tour">— / 4</div>
+      <div class="stat-sub">Test 10 ans BTC</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Population</div>
+      <div class="stat-value" id="stat-population">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Éliminés</div>
+      <div class="stat-value" id="stat-eliminated">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Meilleur</div>
+      <div class="stat-value" id="stat-best">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Buy &amp; hold</div>
+      <div class="stat-value" id="stat-buyhold">—</div>
+      <div class="stat-sub">même période</div>
+    </div>
+  </section>
+
+  <!-- Chart + Protocol/Journal -->
+  <section class="main-grid">
+
+    <div class="panel chart-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Courbe d'équité · 10 000 $ de départ</h2>
+          <div class="chart-meta" id="chart-meta">En attente de la première génération</div>
+        </div>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-strategy"></span>Stratégie</span>
+          <span class="legend-item"><span class="dot dot-buyhold"></span>Buy &amp; hold</span>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="equity-chart"></canvas>
+        <div id="chart-empty" class="chart-empty">Lance une génération pour voir apparaître la courbe du meilleur individu.</div>
+      </div>
+    </div>
+
+    <div class="side-col">
+      <div class="panel">
+        <h2>Protocole</h2>
+        <ul class="protocol-list" id="protocol-list">
+          <li class="protocol-row" data-tour="1">
+            <span class="protocol-name">Tour 1 · test 10 ans</span>
+            <span class="protocol-result">—</span>
+          </li>
+          <li class="protocol-row" data-tour="2">
+            <span class="protocol-name">Tour 2 · test 10 ans</span>
+            <span class="protocol-result">—</span>
+          </li>
+          <li class="protocol-row" data-tour="3">
+            <span class="protocol-name">Tour 3 · test 10 ans</span>
+            <span class="protocol-result">—</span>
+          </li>
+          <li class="protocol-row" data-tour="4">
+            <span class="protocol-name">Tour 4 · reproduction</span>
+            <span class="protocol-result">—</span>
+          </li>
+        </ul>
+        <p class="protocol-fees">
+          Frais 0.10&nbsp;% · long uniquement · stop&nbsp;/&nbsp;objectif&nbsp;/&nbsp;trailing.
+          Les 28 élites restent, chaque survivant produit 3 descendants.
+        </p>
+        <div class="seed-row">
+          <span>Graine</span>
+          <div class="seed-control">
+            <button id="seed-minus" class="seed-btn">−</button>
+            <input id="seed-value" type="number" value="42" />
+            <button id="seed-plus" class="seed-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel journal-panel">
+        <h2>Journal</h2>
+        <div id="journal" class="journal">
+          <div class="journal-line muted">En attente du premier tour.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Population + DNA -->
+  <section class="main-grid main-grid-bottom">
+
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Population vivante</h2>
+        <span class="count-badge" id="population-count">0 individus</span>
+      </div>
+      <div class="table-wrap">
+        <table class="pop-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Entrée</th>
+              <th>Retour</th>
+              <th>Sharpe</th>
+              <th>Max DD</th>
+              <th>Trades</th>
+              <th>Fitness</th>
+            </tr>
+          </thead>
+          <tbody id="pop-table-body">
+            <tr>
+              <td colspan="7" class="empty-row">Lance la génération 1 pour créer 100 individus.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>✦ ADN sélectionné</h2>
+      <div id="dna-panel" class="dna-panel">
+        <p class="muted">Aucun individu sélectionné.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    Darwin Long — laboratoire local. Aucune donnée n'est envoyée à un serveur externe hors le téléchargement du BTC.
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "id": "gen008_ind042",
+  "generation": 8,
+  "parentIds": [
+    "gen004_ind003"
+  ],
+  "genome": {
+    "entryRule": "breakout",
+    "smaFast": 24,
+    "smaSlow": 107,
+    "rsiPeriod": 18,
+    "rsiThreshold": 45,
+    "breakoutPeriod": 27,
+    "emaPeriod": 28,
+    "stopLossPct": 12.21,
+    "useTakeProfit": true,
+    "takeProfitPct": 95.6,
+    "useTrailingStop": true,
+    "trailingStopPct": 30,
+    "useExitSignal": true
+  },
+  "results": {
+    "entryDate": "2017-10-07",
+    "finalEquity": 975782.58,
+    "totalReturnPct": 9657.83,
+    "sharpe": 1.354,
+    "maxDrawdownPct": 51.2,
+    "calmar": 188.611,
+    "trades": 36,
+    "winRate": 58.3,
+    "equityCurve": null
+  },
+  "survivedRounds": [
+    1,
+    2,
+    3
+  ]
+}

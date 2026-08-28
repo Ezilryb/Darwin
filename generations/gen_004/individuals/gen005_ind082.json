@@ -1,0 +1,25 @@
+{
+  "id": "gen005_ind082",
+  "generation": 5,
+  "parentIds": [
+    "gen003_ind013",
+    "gen003_ind005"
+  ],
+  "genome": {
+    "entryRule": "sma_cross",
+    "smaFast": 11,
+    "smaSlow": 58,
+    "rsiPeriod": 21,
+    "rsiThreshold": 15,
+    "breakoutPeriod": 69,
+    "emaPeriod": 25,
+    "stopLossPct": 11.76,
+    "useTakeProfit": false,
+    "takeProfitPct": 200,
+    "useTrailingStop": true,
+    "trailingStopPct": 30,
+    "useExitSignal": true
+  },
+  "results": null,
+  "survivedRounds": []
+}

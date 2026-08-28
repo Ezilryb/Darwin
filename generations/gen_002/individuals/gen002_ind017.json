@@ -1,0 +1,38 @@
+{
+  "id": "gen002_ind017",
+  "generation": 2,
+  "parentIds": [
+    "gen001_ind023"
+  ],
+  "genome": {
+    "entryRule": "ema_trend",
+    "smaFast": 29,
+    "smaSlow": 97,
+    "rsiPeriod": 30,
+    "rsiThreshold": 42,
+    "breakoutPeriod": 34,
+    "emaPeriod": 109,
+    "stopLossPct": 21.92,
+    "useTakeProfit": false,
+    "takeProfitPct": 140.15,
+    "useTrailingStop": false,
+    "trailingStopPct": 24.87,
+    "useExitSignal": true
+  },
+  "results": {
+    "entryDate": "2018-01-24",
+    "finalEquity": 231042.51,
+    "totalReturnPct": 2210.43,
+    "sharpe": 1.034,
+    "maxDrawdownPct": 43.94,
+    "calmar": 50.306,
+    "trades": 52,
+    "winRate": 30.8,
+    "equityCurve": null
+  },
+  "survivedRounds": [
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "darwin-long",
+  "version": "1.0.0",
+  "description": "Laboratoire d'algorithmes évolutifs long-only sur BTC — sélection naturelle de stratégies de trading.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "fetch-data": "node scripts/fetch_btc.js",
+    "sample-data": "node scripts/generate_sample_data.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

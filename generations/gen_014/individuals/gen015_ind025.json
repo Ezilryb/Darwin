@@ -1,0 +1,24 @@
+{
+  "id": "gen015_ind025",
+  "generation": 15,
+  "parentIds": [
+    "gen012_ind024"
+  ],
+  "genome": {
+    "entryRule": "rsi_oversold",
+    "smaFast": 48,
+    "smaSlow": 66,
+    "rsiPeriod": 9,
+    "rsiThreshold": 22,
+    "breakoutPeriod": 82,
+    "emaPeriod": 10,
+    "stopLossPct": 10.5,
+    "useTakeProfit": true,
+    "takeProfitPct": 189.3,
+    "useTrailingStop": false,
+    "trailingStopPct": 30,
+    "useExitSignal": true
+  },
+  "results": null,
+  "survivedRounds": []
+}
