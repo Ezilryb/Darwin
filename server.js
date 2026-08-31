@@ -227,6 +227,7 @@ app.get('/api/generation/:n', (req, res) => {
 app.get('/api/individual/:id', (req, res) => {
   for (const gen of store.listGenerations()) {
     const data = store.loadGeneration(gen);
+    if (!data) continue; // génération cassée -> on l'ignore et on continue
     const found = data.individuals.find((i) => i.id === req.params.id);
     if (found) return res.json({ ...found, description: describeGenome(found.genome) });
   }
