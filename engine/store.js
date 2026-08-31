@@ -55,10 +55,23 @@ export function loadGeneration(gen) {
   const dir = generationDir(gen);
   const summaryPath = path.join(dir, 'summary.json');
   if (!fs.existsSync(summaryPath)) return null;
-  const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+  let summary;
+  try {
+    summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+  } catch {
+    return null; // summary.json corrompu (écriture interrompue)
+  }
   const indDir = path.join(dir, 'individuals');
   const individuals = fs.existsSync(indDir)
-    ? fs.readdirSync(indDir).map((f) => JSON.parse(fs.readFileSync(path.join(indDir, f), 'utf-8')))
+    ? fs.readdirSync(indDir)
+        .map((f) => {
+          try {
+            return JSON.parse(fs.readFileSync(path.join(indDir, f), 'utf-8'));
+          } catch {
+            return null; // fichier individu corrompu -> ignoré
+          }
+        })
+        .filter(Boolean)
     : [];
   return { summary, individuals };
 }
